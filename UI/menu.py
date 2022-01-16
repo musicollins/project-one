@@ -2,6 +2,9 @@ import os
 from UI.data_access.customer_da import CustomerDataAccess
 from data_source.data_source import DataSourceText
 from models.bank import Bank
+import json
+
+from models.transaction import Transaction
 
 class UI:
     def __init__(self):
@@ -13,15 +16,14 @@ class UI:
             command = 'cls'
         os.system(command)
 
+    
     def interact_customer_menu(self, cust):
         # self.clear()
         print(f"ID[{cust._id}]\nCustomer name: {cust._name} ## customer ssn: {cust._ssn} ## Accounts: [{len(cust._accounts)}]")
         
         while True:
-            print('1 -- CustomerOptions 1')
-            print('2 -- CustomerOptions 2')
-            print('3 -- CustomerOptions 3')
-            print('1 -- Go Back')
+            print('1 -- Back To Main Menu')
+            print('2 -- Reprint')
 
             option = int(input())
             
@@ -34,14 +36,12 @@ class UI:
             else:
                 print('Invalid option. Please enter a number between 1 and 4.')
 
-
-
     def menu(self):
         while True:
             print('1 -- Option 1')
             print('2 -- Option 2')
             print('3 -- Option 3')
-            print('9 -- Option 9')
+            print('9 -- jsonfile')
             print('4 -- Exit')
 
             option = int(input('Enter your choice: '))
@@ -58,8 +58,7 @@ class UI:
                 cust = self._bank.get_customer_by_ssn(option)
                 if cust != None:
                     self.interact_customer_menu(cust)
-                else: print("Customer not found!")
-                
+                else: print("Customer not found!")   
             elif option == 3:
                 self.clear()
                 print('Add \'Account\'')
@@ -73,7 +72,9 @@ class UI:
             elif option == 9:
                 self.clear()
                 print('Save changes')
-                self._bank.update_data_source()
+                # self._bank.update_data_source()
+                # self.create_json()
+
             else:
                 print('Invalid option. Please enter a number between 1 and 4.')
 

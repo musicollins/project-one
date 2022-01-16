@@ -2,16 +2,17 @@ from abc import abstractmethod
 import json
 
 class DataSourceInterface:
-    @abstractmethod
+    # @abstractmethod
     def get_data(self):
+        """This method needs to be implemented in child classes"""
         pass
 
 class DataSourceText(DataSourceInterface):
 
     def get_data(self):
-            with open('data_source/customers.txt') as f:
-                data = f.read()
-                return data
+        with open('data_source/customers.txt') as f:
+            data = f.read()
+            return data
     
     def update_data(self, data):
         with open('data_source/customers.txt', 'w') as f:
@@ -21,3 +22,6 @@ class DataSourceText(DataSourceInterface):
 class DataSourceJSON(DataSourceInterface):
         def get_data(self):
             print("This data is coming from a JSON file")
+
+class Test(DataSourceInterface):
+    pass

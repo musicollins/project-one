@@ -1,0 +1,7 @@
+Ralph:67:NBI
+Anna:89:NBI
+Juan:90:NBI
+John:81:NBI
+Linnea:75:NBI
+Emmanuel:56:NBI
+Adolf:20:NBI

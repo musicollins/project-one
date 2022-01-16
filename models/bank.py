@@ -2,6 +2,7 @@ from UI.data_access.customer_da import CustomerDataAccess
 from models.customer import Customer
 
 
+
 class Bank:
     def __init__(self, data_access : CustomerDataAccess):
         self._name = "Swedbank"
@@ -35,5 +36,4 @@ class Bank:
         customers = []
         for cust in self._customers:
             customers.append(f"{cust._name}:{cust._ssn}:{len(cust._accounts)}")
-            print(type(customers))
         self._data_access.update_data(customers)

@@ -20,7 +20,7 @@ class CustomerDataAccess:
             name = customer[0]
             ssn = customer[1]
             num_of_accs = customer[2]
-            customers.append(Customer(name, ssn, num_of_accs))
+            customers.append(Customer(name, ssn))
         ##deserialize to python object
         return customers
 

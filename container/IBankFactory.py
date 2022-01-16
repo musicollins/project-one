@@ -9,3 +9,4 @@ class DefaultBankFactory:
         self.banks = {}
         banks["swedbank"] = Bank()
     def get_bank(self, bank_name):
+        pass
